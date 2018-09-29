@@ -1,14 +1,13 @@
 import React from 'react';
 import Forecast from './Forecast';
 import { StyleSheet, Text, View ,ImageBackground } from 'react-native';
-import { black } from '../node_modules/ansi-colors';
 
 export default class Weather extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
         forecast: {
-        main: 'main', description: 'description', temp: 0
+        main: '-', description: '-', temp: 0
         }
       }
   }
@@ -31,7 +30,11 @@ export default class Weather extends React.Component {
   }
    
   componentDidMount = () => this.fetchData()
-
+  componentDidUpdate = (prevProps) => {
+      if (prevProps.zipCode !== this.props.zipCode) {
+        this.fetchData()
+      }
+  }
 render() {
     return (
       <View style={styles.container}>
@@ -46,7 +49,7 @@ render() {
   }
 }
 const styles = StyleSheet.create({
-    container: { paddingTop: 25 },
+    container: { paddingTop: 0 },
     backdrop: { width: '100%', height: '100%',
                 alignItems:'center', 
     },
