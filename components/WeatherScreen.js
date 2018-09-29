@@ -1,5 +1,5 @@
 import React from 'react';
-import Weather from './components/Weather'
+import Weather from './Weather'
 import { StyleSheet, Text, View ,ImageBackground } from 'react-native';
 
 export default class WeatherScreen extends React.Component {
@@ -14,4 +14,3 @@ export default class WeatherScreen extends React.Component {
         );
     }
 }
-   
